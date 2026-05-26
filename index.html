@@ -894,7 +894,7 @@
     <div class="ft-built">DESIGNED FOR EXCELLENCE</div>
   </footer>
 
-  <script>
+ <script>
     // ===========================
     // RESPONSIVE HAMBURGER MOBILE MENU
     // ===========================
@@ -1010,53 +1010,74 @@
     shirtQtySelect.addEventListener('change', updateOrderSummary);
 
     // ── STRIPE HANDOFF POINT ──
+    // 1. Your Live Stripe Checkout Link Options mapped dynamically
+    const STRIPE_LINKS = {
+      'bp3-classic-navy': 'https://buy.stripe.com/test_fZu28t9hgbja3eI4OQ0x200', // Matches card 1
+      'shirt-2': 'https://buy.stripe.com/test_bJe5kFbpo2MEg1u2GI0x201',          // Matches card 2
+      'shirt-3': 'https://buy.stripe.com/test_9B65kF3WWfzq9D62GI0x202'           // Matches card 3
+    };
+
+    // STRIPE REDIRECTION SYSTEM HANDOFF POINT
     checkoutBtn.addEventListener('click', () => {
       if (!selectedShirt) return;
       
-      const productId = selectedShirt.dataset.id;
-      const productName = selectedShirt.dataset.name;
-      const selectedSize = shirtSizeSelect.value;
-      const selectedQuantity = shirtQtySelect.value;
-      const absoluteTotal = checkoutTotal.textContent;
-
-      alert(
-        '🏈 STRIPE CHECKOUT ROUTING\n\n' +
-        'Product: ' + productName + ' (' + productId + ')\n' +
-        'Size: ' + selectedSize + '\n' +
-        'Quantity: ' + selectedQuantity + '\n' +
-        'Total Price: ' + absoluteTotal + ' USD\n\n' +
-        'Redirecting your fan securely to Stripe Payment Session once your API Keys are live!'
-      );
+      // Pull identity markers out of the actively selected product card
+      const productId = selectedShirt.getAttribute('data-id') || "Custom ID";
+      const productName = selectedShirt.getAttribute('data-name') || "Custom T-Shirt";
       
-      /* When your Stripe account setup is complete, you can drop your Payment Link or 
-         call your backend endpoint here:
-         
-         fetch('/create-checkout-session', {
-           method: 'POST',
-           headers: { 'Content-Type': 'application/json' },
-           body: JSON.stringify({ id: productId, size: selectedSize, qty: selectedQuantity })
-         })
-         .then(res => res.json())
-         .then(session => window.location.href = session.url);
-      */
+      // Capture live value options from sizing and quantity dropdown selections
+      const selectedSize = document.getElementById('shirtSize').value;
+      const selectedQuantity = document.getElementById('shirtQty').value;
+
+      // Extract the matching base payment gateway URL
+      let baseStripeUrl = STRIPE_LINKS[productId];
+      
+      // Fallback: Check structural positions if template IDs mismatch text keys
+      if (!baseStripeUrl) {
+        const cardIndex = Array.from(shirtCards).indexOf(selectedShirt);
+        const fallbackKeys = Object.keys(STRIPE_LINKS);
+        if (cardIndex !== -1 && fallbackKeys[cardIndex]) {
+          baseStripeUrl = STRIPE_LINKS[fallbackKeys[cardIndex]];
+        }
+      }
+      
+      if (!baseStripeUrl) {
+        alert('This payment option is currently processing setup. Please check back in a few minutes!');
+        return;
+      }
+
+      // ── THE TRICK ──
+      // Package Product ID, Chosen Size, and Quantities securely into one string split by triple underscores
+      const unifiedTrackingString = `${productId}___${selectedSize}___${selectedQuantity}`;
+
+      // Append data as an integrated search tracking query string parameter
+      const finalCheckoutUrl = baseStripeUrl + 
+        `?client_reference_id=${encodeURIComponent(unifiedTrackingString)}` +
+        `&quantity=${selectedQuantity}`;
+
+      // Visually lock checkout button state while routing frames navigate
+      checkoutBtn.innerText = "Redirecting to Secure Checkout...";
+      checkoutBtn.disabled = true;
+
+      // Push browser context window directly to secure checkout viewport
+      window.location.href = finalCheckoutUrl;
     });
-  </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const navbar = document.getElementById('navbar') || document.getElementById('main-nav');
-  const mobileMenu = document.getElementById('mobileMenu') || document.getElementById('mobile-menu');
-
-  if (navbar && !navbar.id.includes('main-nav')) {
-    navbar.setAttribute('data-old-id', 'main-nav');
-  }
-
-  if (mobileMenu && !mobileMenu.id.includes('mobile-menu')) {
-    mobileMenu.setAttribute('data-old-id', 'mobile-menu');
-  }
-});
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navbar = document.getElementById('navbar') || document.getElementById('main-nav');
+      const mobileMenu = document.getElementById('mobileMenu') || document.getElementById('mobile-menu');
+
+      if (navbar && !navbar.id.includes('main-nav')) {
+        navbar.setAttribute('data-old-id', 'main-nav');
+      }
+
+      if (mobileMenu && !mobileMenu.id.includes('mobile-menu')) {
+        mobileMenu.setAttribute('data-old-id', 'mobile-menu');
+      }
+    });
+</script>
 </body>
 </html>
 
