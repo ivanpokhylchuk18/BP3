@@ -146,6 +146,7 @@
     .gi-e img{object-position:center top}
     .gi-f img{object-position:center 42%}
     .gi-g img{object-position:center center}
+
     /* ── RECRUITING / HONORS ── */
     #recruiting{background:var(--black);padding:120px 52px}
     .rec-wrap{max-width:1280px;margin:0 auto}
@@ -179,19 +180,167 @@
     .chip{background:var(--glass);border:1px solid var(--glass-border);font-family:var(--fu);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);padding:5px 13px;border-radius:1px}
 
     /* ── CAMP ── */
-    #camp{background:var(--black);padding:100px 52px;border-top:1px solid rgba(201,168,76,.1)}
-    .camp-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
-    .camp-img{border-radius:3px;overflow:hidden;height:320px;position:relative;border:1px solid var(--glass-border);background:var(--dark-3)}
+    #camp{background:var(--black);padding:120px 52px;border-top:1px solid rgba(201,168,76,.1)}
+    .camp-wrap{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
     .camp-eyebrow{font-family:var(--fu);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
     .camp-title{font-family:var(--fd);font-size:clamp(36px,4vw,64px);line-height:.95;color:var(--white);margin-bottom:20px}
-    .camp-details{display:flex;flex-direction:column;gap:14px;margin:24px 0 32px}
-    .camp-row{display:flex;align-items:center;gap:14px}
-    .camp-icon{width:36px;height:36px;border:1px solid var(--glass-border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .camp-icon svg{width:17px;height:17px;fill:var(--gold)}
-    .camp-row-text{font-family:var(--fu);font-size:.9rem;font-weight:600;letter-spacing:1px;color:var(--white)}
-    .camp-row-sub{font-size:.8rem;color:var(--white-dim);font-weight:300}
-    .sponsors-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}
-    .sponsor-pill{background:var(--glass);border:1px solid var(--glass-border);font-family:var(--fu);font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--white-dim);padding:6px 14px;border-radius:2px}
+    .camp-letter-body{font-size:1.02rem;line-height:1.8;color:var(--white-dim);font-weight:300}
+    .camp-letter-body p{margin-bottom:20px}
+    .camp-letter-body p:last-of-type{margin-bottom:32px}
+    .camp-signature{border-top:1px solid rgba(201,168,76,.15);padding-top:20px;font-family:var(--fu);letter-spacing:1px}
+    .camp-sig-name{font-size:1.1rem;font-weight:700;color:var(--white)}
+    .camp-sig-title{font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:6px}
+    .camp-sig-company{font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;line-height:1.5}
+    
+    /* Camp Grid Gallery Layout */
+    .camp-gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .camp-gi{height:240px;border-radius:3px;overflow:hidden;border:1px solid var(--glass-border);background:var(--dark-3);position:relative}
+    .camp-gi-large{grid-column:span 2;height:340px}
+    .camp-gi img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .camp-gi:hover img{transform:scale(1.03)}
+
+    /* ── CLICKABLE FOLDER STYLING ── */
+    .camp-folder-card {
+      position: relative;
+      height: 480px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: var(--dark-3);
+      cursor: pointer;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+    }
+    .folder-cover-img {
+      width: 100%;
+      height: 100%;
+      transition: transform .6s cubic-bezier(.25,.46,.45,.94);
+    }
+    .camp-folder-card:hover .folder-cover-img {
+      transform: scale(1.05);
+    }
+    .folder-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(2,2,2,0.95) 0%, rgba(2,2,2,0.6) 50%, rgba(2,2,2,0.4) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      text-align: center;
+      transition: background var(--tr);
+    }
+    .camp-folder-card:hover .folder-overlay {
+      background: linear-gradient(to top, rgba(2,2,2,0.98) 0%, rgba(0,39,76,0.7) 100%); /* Navy tint on hover */
+    }
+    .folder-icon {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--glass-border);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: transform var(--tr);
+    }
+    .camp-folder-card:hover .folder-icon {
+      transform: scale(1.1);
+      border-color: var(--gold);
+    }
+    .folder-text {
+      font-family: var(--fd);
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .folder-count {
+      font-family: var(--fu);
+      font-size: .9rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ── LIGHTBOX MODAL POPUP STYLING ── */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      inset: 0;
+      background-color: rgba(2,2,2,0.98);
+      backdrop-filter: blur(15px);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 85%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+    .lightbox-caption {
+      margin-top: 16px;
+      font-family: var(--fu);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white-dim);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: var(--white-dim);
+      font-size: 40px;
+      font-weight: 300;
+      cursor: pointer;
+      transition: color var(--tr);
+      z-index: 2100;
+    }
+    .lightbox-close:hover {
+      color: var(--gold);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      font-size: 24px;
+      padding: 16px 22px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all var(--tr);
+      user-select: none;
+    }
+    .lightbox-nav:hover {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+    .nav-prev { left: 32px; }
+    .nav-next { right: 32px; }
+
+    @media(max-width: 768px) {
+      .camp-folder-card { height: 320px; }
+      .lightbox-nav { padding: 12px 16px; font-size: 18px; }
+      .nav-prev { left: 12px; }
+      .nav-next { right: 12px; }
+    }
 
     /* ── MERCHANDISE SECTION ── */
     #merch{background:var(--black);padding:120px 52px;border-top:1px solid rgba(201,168,76,.1)}
@@ -302,6 +451,8 @@
       .gallery-grid{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px}
       .gi,.gi-a,.gi-b,.gi-c,.gi-d,.gi-e,.gi-f,.gi-g{grid-column:1 / -1;grid-row:auto;aspect-ratio:4 / 3}
       .gi-e{aspect-ratio:3 / 4}
+      .camp-gallery-grid{grid-template-columns:1fr}
+      .camp-gi-large{grid-column:span 1;height:240px}
       .ct-grid{grid-template-columns:1fr}
       .merch-grid{grid-template-columns:1fr;gap:32px;max-width:450px;margin-left:auto;margin-right:auto}
       .merch-order-panel{padding:32px 20px}
@@ -310,21 +461,13 @@
       footer{padding:28px 20px;flex-direction:column;text-align:center;justify-content:center}
     }
   
-
-/* Restored styling from previous.html */
-.reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .8s ease,transform .8s ease}
+    .reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .8s ease,transform .8s ease}
     .reveal-l.visible{opacity:1;transform:translateX(0)}
-
-.reveal-r{opacity:0;transform:translateX(36px);transition:opacity .8s ease,transform .8s ease}
+    .reveal-r{opacity:0;transform:translateX(36px);transition:opacity .8s ease,transform .8s ease}
     .reveal-r.visible{opacity:1;transform:translateX(0)}
-
-
-/* Restored previous responsive tweaks */
-/* merged responsive tweaks for max-width:768px (consolidated duplicate blocks) */
-</style>
+  </style>
 </head>
 <body>
-
 
   <nav id="navbar" data-legacy-id="main-nav">
     <div class="nav-logo">
@@ -386,8 +529,8 @@
       </div>
       <div class="hero-socials">
         <a href="https://www.hudl.com/profile/17765954/Benny-Patterson" target="_blank" rel="noopener" aria-label="Michigan Athletics">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-      </a>
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </a>
         <a href="https://www.instagram.com/gettbenny" target="_blank" rel="noopener" aria-label="Instagram Profile">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
@@ -428,39 +571,38 @@
     </div>
   </section>
 
-  <!-- STATS -->
-<section id="stats">
-  <div class="stats-hdr reveal">
-    <p class="eyebrow">Career Production</p>
-    <h2 class="sec-title">BY THE NUMBERS</h2>
-  </div>
-  <div class="stats-grid">
-    <div class="stat-card reveal" style="transition-delay:.05s">
-      <span class="stat-num" data-target="5">0</span>
-      <div class="stat-dv"></div>
-      <span class="stat-lbl">College Games</span>
-      <span class="stat-sub">2024–25 Season</span>
+  <section id="stats">
+    <div class="stats-hdr reveal">
+      <p class="eyebrow">Career Production</p>
+      <h2 class="sec-title">BY THE NUMBERS</h2>
     </div>
-    <div class="stat-card reveal" style="transition-delay:.1s">
-      <span class="stat-num" data-target="181">0</span>
-      <div class="stat-dv"></div>
-      <span class="stat-lbl">Prep Career Tackles</span>
-      <span class="stat-sub">3 Varsity Seasons</span>
+    <div class="stats-grid">
+      <div class="stat-card reveal" style="transition-delay:.05s">
+        <span class="stat-num" data-target="5">0</span>
+        <div class="stat-dv"></div>
+        <span class="stat-lbl">College Games</span>
+        <span class="stat-sub">2024–25 Season</span>
+      </div>
+      <div class="stat-card reveal" style="transition-delay:.1s">
+        <span class="stat-num" data-target="181">0</span>
+        <div class="stat-dv"></div>
+        <span class="stat-lbl">Prep Career Tackles</span>
+        <span class="stat-sub">3 Varsity Seasons</span>
+      </div>
+      <div class="stat-card reveal" style="transition-delay:.15s">
+        <span class="stat-num" data-target="29">0</span>
+        <div class="stat-dv"></div>
+        <span class="stat-lbl">Tackles For Loss</span>
+        <span class="stat-sub">Prep Career</span>
+      </div>
+      <div class="stat-card reveal" style="transition-delay:.2s">
+        <span class="stat-num" data-target="13">0</span>
+        <div class="stat-dv"></div>
+        <span class="stat-lbl">Total Sacks</span>
+        <span class="stat-sub">Prep Career</span>
+      </div>
     </div>
-    <div class="stat-card reveal" style="transition-delay:.15s">
-      <span class="stat-num" data-target="29">0</span>
-      <div class="stat-dv"></div>
-      <span class="stat-lbl">Tackles For Loss</span>
-      <span class="stat-sub">Prep Career</span>
-    </div>
-    <div class="stat-card reveal" style="transition-delay:.2s">
-      <span class="stat-num" data-target="13">0</span>
-      <div class="stat-dv"></div>
-      <span class="stat-lbl">Total Sacks</span>
-      <span class="stat-sub">Prep Career</span>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="gallery">
     <div class="gallery-wrap">
@@ -508,187 +650,201 @@
       </div>
     </div>
   </section>
+
   <section id="recruiting">
-  <div class="rec-wrap">
-    <div class="reveal">
-      <p class="eyebrow">Prospect Profile</p>
-      <h2 class="sec-title">HONORS &<br>RANKINGS</h2>
-      <div class="gold-bar"></div>
+    <div class="rec-wrap">
+      <div class="reveal">
+        <p class="eyebrow">Prospect Profile</p>
+        <h2 class="sec-title">HONORS &<br>RANKINGS</h2>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="rec-grid">
+        <div class="hcard reveal" style="transition-delay:.05s">
+          <div class="hrank">★★★★</div>
+          <div class="htitle">247Sports Composite</div>
+          <p class="hdesc">No. 342 overall nationally · No. 36 defensive lineman in the country · No. 6 prospect in the state of Indiana.</p>
+          <div class="hsrc">247Sports Composite</div>
+        </div>
+        <div class="hcard reveal" style="transition-delay:.1s">
+          <div class="hrank">★★★★</div>
+          <div class="htitle">On3 Profile</div>
+          <p class="hdesc">No. 77 overall player nationally · No. 7 defensive lineman in the country · No. 2 prospect in Indiana.</p>
+          <div class="hsrc">On3.com</div>
+        </div>
+        <div class="hcard reveal" style="transition-delay:.15s">
+          <div class="hrank">★★★★</div>
+          <div class="htitle">Prepstar</div>
+          <p class="hdesc">Premium 4-star assessment · No. 338 overall player in the country.</p>
+          <div class="hsrc">Prepstar.com</div>
+        </div>
+        <div class="hcard reveal" style="transition-delay:.2s">
+          <div class="hrank">★★★</div>
+          <div class="htitle">Rivals.com</div>
+          <p class="hdesc">No. 48 defensive tackle nationally.</p>
+          <div class="hsrc">Rivals.com</div>
+        </div>
+        <div class="hcard reveal" style="transition-delay:.25s">
+          <div class="hrank">★★★</div>
+          <div class="htitle">ESPN Evaluation</div>
+          <p class="hdesc">No. 92 defensive tackle nationally · No. 22 overall player in the state of Indiana.</p>
+          <div class="hsrc">ESPN</div>
+        </div>
+        <div class="hcard reveal" style="transition-delay:.3s">
+          <div class="hrank">ALL-STATE</div>
+          <div class="htitle">IFCA 5A & SIAC</div>
+          <p class="hdesc">IFCA 5A All-State Honoree (2023). Two-time SIAC All-Conference selection (2023 & 2024).</p>
+          <div class="hsrc">Indiana Football Coaches Association</div>
+        </div>
+      </div>
     </div>
-    <div class="rec-grid">
-      <div class="hcard reveal" style="transition-delay:.05s">
-        <div class="hrank">★★★★</div>
-        <div class="htitle">247Sports Composite</div>
-        <p class="hdesc">No. 342 overall nationally · No. 36 defensive lineman in the country · No. 6 prospect in the state of Indiana.</p>
-        <div class="hsrc">247Sports Composite</div>
+  </section>
+
+  <section id="timeline">
+    <div class="tl-wrap">
+      <div class="tl-hdr reveal">
+        <p class="eyebrow">The Journey</p>
+        <h2 class="sec-title">CAREER TIMELINE</h2>
+        <div class="gold-bar" style="margin:0 auto"></div>
       </div>
-      <div class="hcard reveal" style="transition-delay:.1s">
-        <div class="hrank">★★★★</div>
-        <div class="htitle">On3 Profile</div>
-        <p class="hdesc">No. 77 overall player nationally · No. 7 defensive lineman in the country · No. 2 prospect in Indiana.</p>
-        <div class="hsrc">On3.com</div>
-      </div>
-      <div class="hcard reveal" style="transition-delay:.15s">
-        <div class="hrank">★★★★</div>
-        <div class="htitle">Prepstar</div>
-        <p class="hdesc">Premium 4-star assessment · No. 338 overall player in the country.</p>
-        <div class="hsrc">Prepstar.com</div>
-      </div>
-      <div class="hcard reveal" style="transition-delay:.2s">
-        <div class="hrank">★★★</div>
-        <div class="htitle">Rivals.com</div>
-        <p class="hdesc">No. 48 defensive tackle nationally.</p>
-        <div class="hsrc">Rivals.com</div>
-      </div>
-      <div class="hcard reveal" style="transition-delay:.25s">
-        <div class="hrank">★★★</div>
-        <div class="htitle">ESPN Evaluation</div>
-        <p class="hdesc">No. 92 defensive tackle nationally · No. 22 overall player in the state of Indiana.</p>
-        <div class="hsrc">ESPN</div>
-      </div>
-      <div class="hcard reveal" style="transition-delay:.3s">
-        <div class="hrank">ALL-STATE</div>
-        <div class="htitle">IFCA 5A & SIAC</div>
-        <p class="hdesc">IFCA 5A All-State Honoree (2023). Two-time SIAC All-Conference selection (2023 & 2024).</p>
-        <div class="hsrc">Indiana Football Coaches Association</div>
+      <div class="tl-track">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Freshman Year - 2025 Season</div>
+          <h3 class="tl-title">MICHIGAN WOLVERINE · VARSITY LETTER WINNER</h3>
+          <div class="tl-body">
+            Made an immediate impact in Ann Arbor, earning a varsity letter as a true freshman.
+            <ul>
+              <li>Appeared in 5 games on special teams and off the edge</li>
+              <li>Named Scout Team Defensive Player of the Week preparing the offense for Nebraska</li>
+              <li>Collegiate debut vs. New Mexico (Aug. 30, 2024)</li>
+              <li>Played off the edge vs. Central Michigan (Sept. 13)</li>
+              <li>Contributed vs. Nebraska (Sept. 20), Wisconsin (Oct. 4)</li>
+              <li>Saw DL action in the Cheez-It Citrus Bowl vs. Texas (Dec. 31)</li>
+            </ul>
+          </div>
+          <div class="tl-chips">
+            <span class="chip">Varsity Letter</span>
+            <span class="chip">Scout Team POW</span>
+            <span class="chip">Big Ten</span>
+            <span class="chip">Citrus Bowl</span>
+          </div>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:.1s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Senior Year — 2024</div>
+          <h3 class="tl-title">CASTLE HS · REGIONAL RUN</h3>
+          <div class="tl-body">
+            Led the Knights to a 9-3 record and a regional playoff appearance under Head Coach Doug Hurt.
+            <ul>
+              <li>70 tackles · 14.0 TFLs · 7.0 sacks · 2 forced fumbles · 3 fumble recoveries · 1 TD</li>
+              <li>Strip-sack returned 67 yards for a defensive touchdown in the postseason</li>
+            </ul>
+          </div>
+          <div class="tl-chips">
+            <span class="chip">9–3 Season</span>
+            <span class="chip">SIAC All-Conference</span>
+            <span class="chip">70 Tackles</span>
+            <span class="chip">7 Sacks</span>
+          </div>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:.2s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Junior Year — 2023</div>
+          <h3 class="tl-title">BREAKTHROUGH SEASON</h3>
+          <div class="tl-body">
+            Put himself on the national recruiting map in a breakout junior campaign.
+            <ul>
+              <li>70 tackles · 13.0 TFLs · 4.0 sacks · 2 forced fumbles · 1 fumble recovery</li>
+              <li>IFCA 5A All-State Honoree · SIAC All-Conference</li>
+            </ul>
+          </div>
+          <div class="tl-chips">
+            <span class="chip">7–4 Season</span>
+            <span class="chip">IFCA All-State</span>
+            <span class="chip">SIAC All-Conference</span>
+          </div>
+        </div>
+
+        <div class="tl-item reveal" style="transition-delay:.3s">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Sophomore Year — 2022</div>
+          <h3 class="tl-title">VARSITY DEBUT</h3>
+          <div class="tl-body">
+            Earned his varsity stripes as part of an 8-5 postseason team.
+            <ul>
+              <li>41 tackles · 2.0 TFLs · 2.0 sacks across 13 games</li>
+            </ul>
+          </div>
+          <div class="tl-chips">
+            <span class="chip">8–5 Season</span>
+            <span class="chip">Postseason Run</span>
+            <span class="chip">Castle HS</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- TIMELINE -->
-<section id="timeline">
-  <div class="tl-wrap">
-    <div class="tl-hdr reveal">
-      <p class="eyebrow">The Journey</p>
-      <h2 class="sec-title">CAREER TIMELINE</h2>
-      <div class="gold-bar" style="margin:0 auto"></div>
-    </div>
-    <div class="tl-track">
-
-      <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Freshman Year - 2025 Season</div>
-        <h3 class="tl-title">MICHIGAN WOLVERINE · VARSITY LETTER WINNER</h3>
-        <div class="tl-body">
-          Made an immediate impact in Ann Arbor, earning a varsity letter as a true freshman.
-          <ul>
-            <li>Appeared in 5 games on special teams and off the edge</li>
-            <li>Named Scout Team Defensive Player of the Week preparing the offense for Nebraska</li>
-            <li>Collegiate debut vs. New Mexico (Aug. 30, 2024)</li>
-            <li>Played off the edge vs. Central Michigan (Sept. 13)</li>
-            <li>Contributed vs. Nebraska (Sept. 20), Wisconsin (Oct. 4)</li>
-            <li>Saw DL action in the Cheez-It Citrus Bowl vs. Texas (Dec. 31)</li>
-          </ul>
-        </div>
-        <div class="tl-chips">
-          <span class="chip">Varsity Letter</span>
-          <span class="chip">Scout Team POW</span>
-          <span class="chip">Big Ten</span>
-          <span class="chip">Citrus Bowl</span>
-        </div>
-      </div>
-
-      <div class="tl-item reveal" style="transition-delay:.1s">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Senior Year — 2024</div>
-        <h3 class="tl-title">CASTLE HS · REGIONAL RUN</h3>
-        <div class="tl-body">
-          Led the Knights to a 9-3 record and a regional playoff appearance under Head Coach Doug Hurt.
-          <ul>
-            <li>70 tackles · 14.0 TFLs · 7.0 sacks · 2 forced fumbles · 3 fumble recoveries · 1 TD</li>
-            <li>Strip-sack returned 67 yards for a defensive touchdown in the postseason</li>
-          </ul>
-        </div>
-        <div class="tl-chips">
-          <span class="chip">9–3 Season</span>
-          <span class="chip">SIAC All-Conference</span>
-          <span class="chip">70 Tackles</span>
-          <span class="chip">7 Sacks</span>
-        </div>
-      </div>
-
-      <div class="tl-item reveal" style="transition-delay:.2s">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Junior Year — 2023</div>
-        <h3 class="tl-title">BREAKTHROUGH SEASON</h3>
-        <div class="tl-body">
-          Put himself on the national recruiting map in a breakout junior campaign.
-          <ul>
-            <li>70 tackles · 13.0 TFLs · 4.0 sacks · 2 forced fumbles · 1 fumble recovery</li>
-            <li>IFCA 5A All-State Honoree · SIAC All-Conference</li>
-          </ul>
-        </div>
-        <div class="tl-chips">
-          <span class="chip">7–4 Season</span>
-          <span class="chip">IFCA All-State</span>
-          <span class="chip">SIAC All-Conference</span>
-        </div>
-      </div>
-
-      <div class="tl-item reveal" style="transition-delay:.3s">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Sophomore Year — 2022</div>
-        <h3 class="tl-title">VARSITY DEBUT</h3>
-        <div class="tl-body">
-          Earned his varsity stripes as part of an 8-5 postseason team.
-          <ul>
-            <li>41 tackles · 2.0 TFLs · 2.0 sacks across 13 games</li>
-          </ul>
-        </div>
-        <div class="tl-chips">
-          <span class="chip">8–5 Season</span>
-          <span class="chip">Postseason Run</span>
-          <span class="chip">Castle HS</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+  <!-- UPDATED CAMP SECTION WITH RECAP TEXT AND INTEGRATED GALLERY -->
   <section id="camp">
-  <div class="camp-wrap">
-    <div class="camp-img reveal-l">
-      <img src="images/camp.png" alt="Benny Patterson III Football Camp May 30 2026" />
-    </div>
-    <div class="reveal-r">
-      <p class="camp-eyebrow">Community · Development</p>
-      <h2 class="camp-title">BENNY PATTERSON III<br>FOOTBALL CAMP</h2>
-      <div class="gold-bar"></div>
-      <div class="camp-details">
-        <div class="camp-row">
-          <div class="camp-icon"><svg viewBox="0 0 24 24"><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg></div>
-          <div>
-            <div class="camp-row-text">May 30, 2026</div>
-            <div class="camp-row-sub">9 AM – 12 PM</div>
+    <div class="camp-wrap">
+      
+      <div class="reveal-l" style="width: 100%;">
+        <div class="camp-folder-card" id="openCampGallery" title="Click to view all camp photos">
+          <div class="folder-cover-img">
+            <img src="images/camp_gallery1.jpg" alt="BP3 Youth Football Camp - Click to view gallery" onerror="this.src='images/camp.png'">
           </div>
-        </div>
-        <div class="camp-row">
-          <div class="camp-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-          <div>
-            <div class="camp-row-text">Castle High School Field</div>
-            <div class="camp-row-sub">Newburgh, Indiana</div>
-          </div>
-        </div>
-        <div class="camp-row">
-          <div class="camp-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
-          <div>
-            <div class="camp-row-text">Ages 6–13</div>
-            <div class="camp-row-sub">All skill levels welcome</div>
+          <div class="folder-overlay">
+            <div class="folder-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="#C9A84C"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+            </div>
+            <div class="folder-text">VIEW FULL CAMP GALLERY</div>
+            <div class="folder-count">Launch Photo Folder</div>
           </div>
         </div>
       </div>
-      <p style="font-family:var(--fu);font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px">Proudly Sponsored By</p>
-      <div class="sponsors-row">
-        <span class="sponsor-pill">Chris Brown Custom Homes</span>
-        <span class="sponsor-pill">Dana F. Morris, DMD</span>
-        <span class="sponsor-pill">Mercy Urgent Care</span>
+      
+      <div class="reveal-r">
+        <p class="camp-eyebrow">COMMUNITY · IMPACT</p>
+        <h2 class="camp-title">1ST ANNUAL BP3 YOUTH<br>FOOTBALL CAMP RECAP</h2>
+        <div class="gold-bar"></div>
+        
+        <div class="camp-letter-body">
+          <p><strong>What an incredible day!</strong></p>
+          <p>The First Annual BP3 Youth Football Camp is officially in the books, and what a blessing it was. We had an amazing turnout of young athletes who came ready to learn, compete, and have fun. Seeing the smiles, energy, and excitement from every camper made all the hard work worth it.</p>
+          <p>A huge thank you to all of the players, parents, volunteers, coaches, instructors, sponsors, and supporters who helped make this event possible. Special thanks to our camp instructors who invested their time and knowledge into the next generation of athletes.</p>
+          <p>This camp was about more than football. It was about building confidence, teaching fundamentals, encouraging teamwork, and giving back to the community that has supported our family for so many years.</p>
+          <p>Watching these young athletes work hard, encourage one another, and enjoy the game reminded us exactly why we started this camp. Today was the beginning of something special.</p>
+          <p>Thank you, Newburgh and the surrounding communities, for your support. We are already looking forward to making next year’s camp even bigger and better.</p>
+          <p>The First Annual BP3 Youth Football Camp was a success because of YOU.</p>
+          <p style="font-weight: 700; color: var(--gold);">See you in 2027!</p>
+          
+          <div class="camp-signature">
+            <div class="camp-sig-name">Benny Patterson Jr</div>
+            <div class="camp-sig-title">President / CEO</div>
+            <div class="camp-sig-company">
+              Patterson’s Family Holdings LLC<br>
+              Fivebbbbb LLC | BP Management LLC
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
+  </section>
+
+  <div id="galleryLightbox" class="lightbox-modal">
+    <span class="lightbox-close" id="closeLightbox">&times;</span>
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="Camp Gallery Image">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+    <button class="lightbox-nav nav-prev" id="prevLightboxBtn">&#10094;</button>
+    <button class="lightbox-nav nav-next" id="nextLightboxBtn">&#10095;</button>
   </div>
-</section>
+
   <section id="merch">
     <div class="merch-wrap">
       <div class="merch-hdr reveal">
@@ -822,27 +978,26 @@
     </div>
   </section>
 
+  <section id="contact">
+    <div class="ct-wrap">
+      <p class="eyebrow reveal">Get In Touch</p>
+      <h2 class="sec-title reveal" style="transition-delay:.08s">MEDIA &<br>INQUIRIES</h2>
+      <div class="gold-bar reveal" style="margin:0 auto 28px;transition-delay:.12s"></div>
+      <p class="ct-sub reveal" style="transition-delay:.16s">For camp inquiries, media coordination, recruiting updates, or anything else — reach out through official channels below.</p>
 
-<section id="contact">
-  <div class="ct-wrap">
-    <p class="eyebrow reveal">Get In Touch</p>
-    <h2 class="sec-title reveal" style="transition-delay:.08s">MEDIA &<br>INQUIRIES</h2>
-    <div class="gold-bar reveal" style="margin:0 auto 28px;transition-delay:.12s"></div>
-    <p class="ct-sub reveal" style="transition-delay:.16s">For camp inquiries, media coordination, recruiting updates, or anything else — reach out through official channels below.</p>
-
-    <div class="ct-grid reveal" style="transition-delay:.22s">
-      <a href="mailto:pattersonsfamilyholdings@gmail.com" class="ct-link">
-        <div class="ct-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </div>
-        <div>
-          <div class="ct-lbl">Email</div>
-          <div class="ct-val">pattersonsfamilyholdings@gmail.com</div>
-        </div>
-      </a>
-      <a href="https://www.instagram.com/gettbenny" target="_blank" rel="noopener" class="ct-link">
-        <div class="ct-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      <div class="ct-grid reveal" style="transition-delay:.22s">
+        <a href="mailto:pattersonsfamilyholdings@gmail.com" class="ct-link">
+          <div class="ct-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <div class="ct-lbl">Email</div>
+            <div class="ct-val">pattersonsfamilyholdings@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/gettbenny" target="_blank" rel="noopener" class="ct-link">
+          <div class="ct-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         </div>
         <div>
           <div class="ct-lbl">Instagram</div>
@@ -871,7 +1026,6 @@
   </div>
 </section>
 
-
   <footer>
     <div class="ft-logo">
       <div class="ft-logo-img">
@@ -883,7 +1037,7 @@
     <div class="ft-built">DESIGNED FOR EXCELLENCE</div>
   </footer>
 
- <script>
+  <script>
     // ===========================
     // RESPONSIVE HAMBURGER MOBILE MENU
     // ===========================
@@ -999,29 +1153,21 @@
     shirtQtySelect.addEventListener('change', updateOrderSummary);
 
     // ── STRIPE HANDOFF POINT ──
-    // 1. Your Live Stripe Checkout Link Options mapped dynamically
     const STRIPE_LINKS = {
-      'bp3-classic-navy': 'https://buy.stripe.com/3cI7sLfpkgsc4k4eNu5EY02', // Matches card 1
-      'shirt-2': 'https://buy.stripe.com/fZu4gz3GCek4aIs5cU5EY01',          // Matches card 2
-      'shirt-3': 'https://buy.stripe.com/3cIaEXa506RCaIseNu5EY00'           // Matches card 3
+      'bp3-classic-navy': 'https://buy.stripe.com/3cI7sLfpkgsc4k4eNu5EY02', 
+      'shirt-2': 'https://buy.stripe.com/fZu4gz3GCek4aIs5cU5EY01',          
+      'shirt-3': 'https://buy.stripe.com/3cIaEXa506RCaIseNu5EY00'           
     };
 
-    // STRIPE REDIRECTION SYSTEM HANDOFF POINT
     checkoutBtn.addEventListener('click', () => {
       if (!selectedShirt) return;
       
-      // Pull identity markers out of the actively selected product card
       const productId = selectedShirt.getAttribute('data-id') || "Custom ID";
-      const productName = selectedShirt.getAttribute('data-name') || "Custom T-Shirt";
-      
-      // Capture live value options from sizing and quantity dropdown selections
       const selectedSize = document.getElementById('shirtSize').value;
       const selectedQuantity = document.getElementById('shirtQty').value;
 
-      // Extract the matching base payment gateway URL
       let baseStripeUrl = STRIPE_LINKS[productId];
       
-      // Fallback: Check structural positions if template IDs mismatch text keys
       if (!baseStripeUrl) {
         const cardIndex = Array.from(shirtCards).indexOf(selectedShirt);
         const fallbackKeys = Object.keys(STRIPE_LINKS);
@@ -1035,25 +1181,111 @@
         return;
       }
 
-      // ── THE TRICK ──
-      // Package Product ID, Chosen Size, and Quantities securely into one string split by triple underscores
       const unifiedTrackingString = `${productId}___${selectedSize}___${selectedQuantity}`;
-
-      // Append data as an integrated search tracking query string parameter
       const finalCheckoutUrl = baseStripeUrl + 
         `?client_reference_id=${encodeURIComponent(unifiedTrackingString)}` +
         `&quantity=${selectedQuantity}`;
 
-      // Visually lock checkout button state while routing frames navigate
       checkoutBtn.innerText = "Redirecting to Secure Checkout...";
       checkoutBtn.disabled = true;
 
-      // Push browser context window directly to secure checkout viewport
       window.location.href = finalCheckoutUrl;
     });
-</script>
 
-<script>
+// ==========================================
+    // CAMP LIGHTBOX FOLDER SYSTEM
+    // ==========================================
+    // Array lists of your extracted camp pictures from Google Drive
+    const campImages = [
+      { src: 'images/camp/DSC_0071.jpeg' },
+      { src: 'images/camp/DSC_0084.jpeg' },
+      { src: 'images/camp/DSC_0120.jpeg' },
+      { src: 'images/camp/DSC_0121.jpeg' },
+      { src: 'images/camp/DSC_0135.jpeg' },
+      { src: 'images/camp/DSC_0152.jpeg' },
+      { src: 'images/camp/DSC_0157.jpeg' },
+      { src: 'images/camp/DSC_0188.jpeg' },
+      { src: 'images/camp/DSC_0200.jpeg' },
+      { src: 'images/camp/DSC_0336.jpeg' },
+      { src: 'images/camp/DSC_0352.jpeg' },
+      { src: 'images/camp/DSC_0457.jpeg' },
+      { src: 'images/camp/DSC_0544.jpeg' },
+      { src: 'images/camp/DSC_0644.jpeg' },
+      { src: 'images/camp/DSC_0711.jpeg' },
+      { src: 'images/camp/DSC_0731.jpeg' },
+      { src: 'images/camp/DSC_0737.jpeg' },
+      { src: 'images/camp/DSC_0757.jpeg' },
+      { src: 'images/camp/DSC_0767.jpeg' },
+      { src: 'images/camp/DSC_0811.jpeg' },
+      { src: 'images/camp/DSC_0832.jpeg' },
+      { src: 'images/camp/DSC_0865.jpeg' },
+      { src: 'images/camp/DSC_0887.jpeg' },
+      { src: 'images/camp/DSC_1106.jpeg' }
+      // You can drop as many image paths here as you download from the Drive folder!
+    ];
+
+    let currentImgIndex = 0;
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImage');
+    const lightboxCap = document.getElementById('lightboxCaption');
+    const openFolderBtn = document.getElementById('openCampGallery');
+    const closeFolderBtn = document.getElementById('closeLightbox');
+    const prevBtn = document.getElementById('prevLightboxBtn');
+    const nextBtn = document.getElementById('nextLightboxBtn');
+
+    function showImage(index) {
+      if (index >= campImages.length) currentImgIndex = 0;
+      else if (index < 0) currentImgIndex = campImages.length - 1;
+      else currentImgIndex = index;
+
+      lightboxImg.src = campImages[currentImgIndex].src;
+      lightboxCap.textContent = campImages[currentImgIndex].caption;
+    }
+
+    openFolderBtn.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      showImage(0);
+      document.body.style.overflow = 'hidden'; // Lock background scrolling
+    });
+
+    closeFolderBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restore scroll
+    });
+
+    // Close lightbox if user clicks on the dark backdrop background area
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentImgIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentImgIndex + 1);
+    });
+
+    // Keyboards directional shortcut listeners
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowRight') showImage(currentImgIndex + 1);
+        if (e.key === 'ArrowLeft') showImage(currentImgIndex - 1);
+        if (e.key === 'Escape') {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      }
+    });
+
+  </script>
+
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const navbar = document.getElementById('navbar') || document.getElementById('main-nav');
       const mobileMenu = document.getElementById('mobileMenu') || document.getElementById('mobile-menu');
@@ -1066,7 +1298,6 @@
         mobileMenu.setAttribute('data-old-id', 'mobile-menu');
       }
     });
-</script>
+  </script>
 </body>
 </html>
-
