@@ -634,6 +634,36 @@
   font-size: 1.1rem;
 }
 
+/* LEGO FIGURE CARD */
+.shirt-card.figure-card .shirt-img{
+  height:280px;
+  background:#f2f2f2;
+  position:relative;
+  overflow:hidden;
+}
+
+.shirt-card.figure-card .shirt-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:10px;
+  transition:opacity .35s ease;
+}
+
+.shirt-card.figure-card .figure-back{
+  position:absolute;
+  inset:0;
+  opacity:0;
+}
+
+.shirt-card.figure-card:hover .figure-front{
+  opacity:0;
+}
+
+.shirt-card.figure-card:hover .figure-back{
+  opacity:1;
+}
+
 
 /* STATUS MESSAGE */
 
@@ -713,6 +743,25 @@
   .form-section-heading {
     margin-top: 34px;
   }
+}
+.contact-person {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-person h3 {
+    margin: 0;
+}
+
+.contact-person a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.contact-person a:hover {
+    opacity: 0.7;
 }
 
 
@@ -2367,7 +2416,51 @@
             </div>
           </div>
         </div>
+
+        <!-- LEGO BP3 FIGURE -->
+        <div class="shirt-card figure-card" data-id="bp3-lego-figure" data-name="BP3 LEGO-Style Figure" data-price="50">
+          <div class="shirt-img">
+            <span class="shirt-img-label">EXCLUSIVE COLLECTIBLE</span>
+
+            <div class="shirt-selected-check">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+            </div>
+
+            <img
+              class="figure-front"
+              src="images/legofront.jpeg"
+              alt="BP3 LEGO-Style Figure Front"
+            >
+
+            <img
+              class="figure-back"
+              src="images/legoback.jpeg"
+              alt="BP3 LEGO-Style Figure Back"
+            >
+          </div>
+
+          <div class="shirt-info">
+            <div class="shirt-meta">
+              <div class="shirt-num">STYLE 05</div>
+              <h3 class="shirt-name">BP3 LEGO-Style Figure</h3>
+              <p class="shirt-desc">
+                Custom BP3 collectible figure featuring Michigan-inspired colors,
+                number 93, and personalized jersey details.
+              </p>
+            </div>
+
+            <div class="shirt-price-row">
+              <span class="shirt-price">$50</span>
+              <button class="shirt-select-btn">Select Item</button>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      
 
       <div class="merch-order-panel reveal" id="orderPanel">
         <h3 class="order-panel-title">SECURE STRIPE CHECKOUT</h3>
@@ -2432,8 +2525,6 @@
       <h2 class="sec-title reveal" style="transition-delay:.08s">MEDIA &<br>INQUIRIES</h2>
       <div class="gold-bar reveal" style="margin:0 auto 28px;transition-delay:.12s"></div>
       <p class="ct-sub reveal" style="transition-delay:.16s">For camp inquiries, media coordination, recruiting updates, or anything else — reach out through official channels below.</p>
-
-      <div class="ct-grid reveal" style="transition-delay:.22s">
         <a href="mailto:bennypattersonjr@bennypatterson3.com" class="ct-link">
           <div class="ct-icon">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -2443,16 +2534,28 @@
             <div class="ct-val">bennypattersonjr@bennypatterson3.com</div>
           </div>
         </a>
-        <a href="https://www.instagram.com/gettbenny" target="_blank" rel="noopener" class="ct-link">
+        <a href="tel:+18435148523" class="ct-link">
+  <div class="ct-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+  </div>
+
+  <div>
+    <div class="ct-lbl">Phone</div>
+    <div class="ct-val">(843) 514-8523</div>
+  </div>
+</a>
+        <a href="https://www.instagram.com/bennypattersonjr?utm_source=qr" target="_blank" rel="noopener" class="ct-link">
           <div class="ct-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         </div>
         <div>
           <div class="ct-lbl">Instagram</div>
-          <div class="ct-val">@gettbenny</div>
+          <div class="ct-val">@bennypattersonjr</div>
         </div>
       </a>
-      <a href="https://x.com/BennyPattlll" target="_blank" rel="noopener" class="ct-link">
+      <a href="https://x.com/bennypatterson_?s=11" target="_blank" rel="noopener" class="ct-link">
         <div class="ct-icon">
           <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </div>
@@ -2593,9 +2696,12 @@
     selectedProductPrice.textContent = `Unit Price: $${parseFloat(card.dataset.price).toFixed(2)} USD`;
 
     const sizeField = document.querySelector('.order-field:first-child');
-    if (card.dataset.id === 'bp3-football-car') {
-      sizeField.style.display = 'none';
-    } else {
+    if (
+  card.dataset.id === 'bp3-football-car' ||
+  card.dataset.id === 'bp3-lego-figure'
+) {
+  sizeField.style.display = 'none';
+} else {
       sizeField.style.display = 'flex';
       shirtSizeSelect.value = 'Standard';
     }
@@ -2612,7 +2718,8 @@
       'bp3-classic-navy': 'https://buy.stripe.com/3cI7sLfpkgsc4k4eNu5EY02', 
       'bp3-championship-gold': 'https://buy.stripe.com/fZu4gz3GCek4aIs5cU5EY01',          
       'bp3-premium-gas': 'https://buy.stripe.com/3cIaEXa506RCaIseNu5EY00',
-      'bp3-football-car': 'https://buy.stripe.com/5kQ4gz6SOb7S8Ak34M5EY03' // Replace with your standard $10 Stripe payment link when live          
+      'bp3-football-car': 'https://buy.stripe.com/5kQ4gz6SOb7S8Ak34M5EY03', // Replace with your standard $10 Stripe payment link when live
+      'bp3-lego-figure': 'https://buy.stripe.com/aFa8wPfpkcbWbMwdJq5EY04'        
     };
 
     checkoutBtn.addEventListener('click', () => {
@@ -2641,6 +2748,9 @@
     });
 
     
+
+
+
 // =========================================================
 // 2027 CAMP REGISTRATION
 // =========================================================
