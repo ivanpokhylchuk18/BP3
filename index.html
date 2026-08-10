@@ -146,6 +146,26 @@
     .gi-e img{object-position:center top}
     .gi-f img{object-position:center 42%}
     .gi-g img{object-position:center center}
+    /* Add inside your <style> block alongside the other .gi-* definitions */
+    /* Gallery images H & I */
+.gi-h {
+  grid-column: span 6;
+  grid-row: span 6;
+}
+
+.gi-i {
+  grid-column: span 6;
+  grid-row: span 6;
+}
+
+.gi-h img,
+.gi-i img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
 
     /* ── RECRUITING / HONORS ── */
     #recruiting{background:var(--black);padding:120px 52px}
@@ -264,6 +284,437 @@
       text-transform: uppercase;
       font-weight: 600;
     }
+
+
+    /* =========================================================
+   2027 CAMP REGISTRATION
+   ========================================================= */
+
+#camp2027 {
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(0,39,76,.25),
+      transparent 35%
+    ),
+    var(--black);
+  padding: 120px 52px;
+  border-top: 1px solid rgba(201,168,76,.12);
+}
+
+.camp2027-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.camp2027-header {
+  max-width: 760px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.camp2027-header .gold-bar {
+  margin: 0 auto 28px;
+}
+
+.camp2027-header .sec-title span {
+  color: var(--gold);
+}
+
+.camp2027-intro {
+  color: var(--white-dim);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto 36px;
+}
+
+.camp2027-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.camp-detail {
+  background: var(--dark-2);
+  border: 1px solid rgba(201,168,76,.12);
+  padding: 20px 14px;
+}
+
+.camp-detail-label {
+  display: block;
+  font-family: var(--fu);
+  font-size: .6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.camp-detail-value {
+  display: block;
+  font-family: var(--fd);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+
+/* FORM CARD */
+
+.camp-registration-card {
+  background: var(--dark-2);
+  border: 1px solid var(--glass-border);
+  padding: 52px;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 25px 80px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+
+.camp-registration-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+.camp-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.camp-form-eyebrow {
+  font-family: var(--fu);
+  font-size: .65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.camp-form-header h3 {
+  font-family: var(--fd);
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.camp-form-badge {
+  width: 58px;
+  height: 58px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fd);
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+
+
+/* FORM SECTIONS */
+
+.form-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 42px 0 24px;
+}
+
+.form-section-heading:first-of-type {
+  margin-top: 0;
+}
+
+.form-section-number {
+  font-family: var(--fd);
+  font-size: 1.5rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.form-section-heading h4 {
+  font-family: var(--fu);
+  font-size: .8rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.form-section-heading p {
+  font-size: .78rem;
+  color: rgba(245,245,245,.4);
+  font-weight: 300;
+}
+
+
+/* FIELDS */
+
+.camp-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.camp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.camp-field-full {
+  grid-column: 1 / -1;
+}
+
+.camp-field label {
+  font-family: var(--fu);
+  font-size: .65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.camp-field input,
+.camp-field select,
+.camp-field textarea {
+  width: 100%;
+  background: var(--dark-3);
+  border: 1px solid rgba(201,168,76,.15);
+  color: var(--white);
+  padding: 14px 16px;
+  border-radius: 2px;
+  outline: none;
+  font-family: var(--fb);
+  font-size: .92rem;
+  transition:
+    border-color var(--tr),
+    background var(--tr),
+    box-shadow var(--tr);
+}
+
+.camp-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+.camp-field input::placeholder,
+.camp-field textarea::placeholder {
+  color: rgba(245,245,245,.25);
+}
+
+.camp-field input:focus,
+.camp-field select:focus,
+.camp-field textarea:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,.045);
+  box-shadow: 0 0 0 3px rgba(201,168,76,.06);
+}
+
+.camp-field input:invalid:not(:placeholder-shown) {
+  border-color: rgba(200,70,70,.7);
+}
+
+
+/* CONSENT */
+
+.camp-consent {
+  margin-top: 34px;
+  padding: 20px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.camp-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.camp-checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkmark {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  border: 1px solid rgba(201,168,76,.4);
+  background: var(--dark-3);
+  border-radius: 2px;
+  position: relative;
+  margin-top: 2px;
+  transition: all var(--tr);
+}
+
+.camp-checkbox input:checked + .checkmark {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.camp-checkbox input:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--black);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.consent-text {
+  font-size: .78rem;
+  line-height: 1.65;
+  color: var(--white-dim);
+}
+
+
+/* SUBMIT */
+
+.camp-submit-btn {
+  width: 100%;
+  margin-top: 28px;
+  padding: 17px 26px;
+  border: 2px solid var(--gold);
+  border-radius: 2px;
+  background: var(--gold);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+  font-family: var(--fu);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: all var(--tr);
+}
+
+.camp-submit-btn:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px var(--gold-glow);
+}
+
+.camp-submit-btn:disabled {
+  opacity: .55;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+.submit-arrow {
+  font-size: 1.1rem;
+}
+
+
+/* STATUS MESSAGE */
+
+.camp-form-status {
+  display: none;
+  margin-top: 20px;
+  padding: 14px 18px;
+  text-align: center;
+  font-family: var(--fu);
+  font-size: .72rem;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.camp-form-status.success {
+  display: block;
+  color: var(--gold);
+  background: rgba(201,168,76,.06);
+  border: 1px solid rgba(201,168,76,.2);
+}
+
+.camp-form-status.error {
+  display: block;
+  color: #e8a0a0;
+  background: rgba(180,50,50,.06);
+  border: 1px solid rgba(180,50,50,.2);
+}
+
+.camp-form-note {
+  margin-top: 18px;
+  text-align: center;
+  font-size: .65rem;
+  line-height: 1.6;
+  color: rgba(245,245,245,.25);
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px) {
+
+  #camp2027 {
+    padding: 80px 20px;
+  }
+
+  .camp2027-details {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .camp-registration-card {
+    padding: 30px 20px;
+  }
+
+  .camp-form-header {
+    align-items: flex-start;
+  }
+
+  .camp-form-header h3 {
+    font-size: 1.9rem;
+  }
+
+  .camp-form-badge {
+    width: 46px;
+    height: 46px;
+    font-size: 1rem;
+  }
+
+  .camp-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .camp-field-full {
+    grid-column: auto;
+  }
+
+  .form-section-heading {
+    margin-top: 34px;
+  }
+}
+
 
     /* ── LIGHTBOX MODAL POPUP STYLING ── */
     .lightbox-modal {
@@ -649,6 +1100,16 @@
           <div class="gi-overlay"></div>
           <div class="gi-lbl">Training // Burst</div>
         </div>
+        <div class="gi gi-h">
+          <img src="images/back93.jpeg" alt="Benny Patterson III running through a football drill" />
+          <div class="gi-overlay"></div>
+          <div class="gi-lbl">Training // Burst</div>
+        </div>
+        <div class="gi gi-i">
+          <img src="images/runningpose.jpeg" alt="Benny Patterson III running through a football drill" />
+          <div class="gi-overlay"></div>
+          <div class="gi-lbl">Training // Burst</div>
+        </div>
       </div>
     </div>
   </section>
@@ -835,6 +1296,967 @@
 
     </div>
   </section>
+
+  <!-- ── 2027 CAMP REGISTRATION ── -->
+<section id="camp2027">
+
+  <div class="camp2027-wrap">
+
+    <!-- HEADER -->
+    <div class="camp2027-header reveal">
+
+      <p class="eyebrow">2027 · REGISTRATION NOW OPEN</p>
+
+      <h2 class="sec-title">
+        BP3 YOUTH<br>
+        <span>FOOTBALL CAMP</span>
+      </h2>
+
+      <div class="gold-bar"></div>
+
+      <p class="camp2027-intro">
+        The next chapter starts here. Register your young athlete for the
+        2027 BP3 Youth Football Camp and give them an opportunity to learn,
+        compete, build confidence, and grow through the game of football.
+      </p>
+
+      <div class="camp2027-details">
+
+        <div class="camp-detail">
+          <span class="camp-detail-label">YEAR</span>
+          <span class="camp-detail-value">2027</span>
+        </div>
+
+        <div class="camp-detail">
+          <span class="camp-detail-label">CAMPER</span>
+          <span class="camp-detail-value">YOUTH ATHLETES</span>
+        </div>
+
+        <div class="camp-detail">
+          <span class="camp-detail-label">LOCATION</span>
+          <span class="camp-detail-value">NEWBURGH, INDIANA</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- REGISTRATION CARD -->
+    <div class="camp-registration-card reveal">
+
+      <div class="camp-form-header">
+
+        <div>
+          <p class="camp-form-eyebrow">
+            SECURE YOUR SPOT
+          </p>
+
+          <h3>2027 CAMP REGISTRATION</h3>
+        </div>
+
+        <div class="camp-form-badge">
+          BP3
+        </div>
+
+      </div>
+
+
+      <form id="camp2027Form">
+
+
+        <!-- =================================================
+             01 — CAMPER INFORMATION
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">01</span>
+
+          <div>
+            <h4>CAMPER INFORMATION</h4>
+            <p>Tell us about the athlete attending camp.</p>
+          </div>
+
+        </div>
+
+
+        <div class="camp-form-grid">
+
+
+          <!-- FIRST NAME -->
+
+          <div class="camp-field">
+
+            <label for="camperFirstName">
+              Camper's First Name *
+            </label>
+
+            <input
+              type="text"
+              id="camperFirstName"
+              name="camperFirstName"
+              placeholder="First name"
+              required
+            >
+
+          </div>
+
+
+          <!-- LAST NAME -->
+
+          <div class="camp-field">
+
+            <label for="camperLastName">
+              Camper's Last Name *
+            </label>
+
+            <input
+              type="text"
+              id="camperLastName"
+              name="camperLastName"
+              placeholder="Last name"
+              required
+            >
+
+          </div>
+
+
+          <!-- DATE OF BIRTH -->
+
+          <div class="camp-field">
+
+            <label for="camperDOB">
+              Camper's Date of Birth *
+            </label>
+
+            <input
+              type="date"
+              id="camperDOB"
+              name="camperDOB"
+              required
+            >
+
+          </div>
+
+
+          <!-- AGE -->
+
+          <div class="camp-field">
+
+            <label for="camperAge">
+              Camper's Age *
+            </label>
+
+            <input
+              type="number"
+              id="camperAge"
+              name="camperAge"
+              min="1"
+              max="18"
+              placeholder="Age"
+              required
+            >
+
+          </div>
+
+
+          <!-- GRADE -->
+
+          <div class="camp-field">
+
+            <label for="camperGrade">
+              Grade Entering Fall 2027 *
+            </label>
+
+            <select
+              id="camperGrade"
+              name="camperGrade"
+              required
+            >
+
+              <option value="">
+                Select grade
+              </option>
+
+              <option value="Kindergarten">
+                Kindergarten
+              </option>
+
+              <option value="1st Grade">
+                1st Grade
+              </option>
+
+              <option value="2nd Grade">
+                2nd Grade
+              </option>
+
+              <option value="3rd Grade">
+                3rd Grade
+              </option>
+
+              <option value="4th Grade">
+                4th Grade
+              </option>
+
+              <option value="5th Grade">
+                5th Grade
+              </option>
+
+              <option value="6th Grade">
+                6th Grade
+              </option>
+
+              <option value="7th Grade">
+                7th Grade
+              </option>
+
+              <option value="8th Grade">
+                8th Grade
+              </option>
+
+              <option value="9th Grade">
+                9th Grade
+              </option>
+
+              <option value="10th Grade">
+                10th Grade
+              </option>
+
+              <option value="11th Grade">
+                11th Grade
+              </option>
+
+              <option value="12th Grade">
+                12th Grade
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- SCHOOL -->
+
+          <div class="camp-field">
+
+            <label for="schoolAttending">
+              School Attending *
+            </label>
+
+            <input
+              type="text"
+              id="schoolAttending"
+              name="schoolAttending"
+              placeholder="School name"
+              required
+            >
+
+          </div>
+
+
+          <!-- GENDER -->
+
+          <div class="camp-field">
+
+            <label for="camperGender">
+              Gender *
+            </label>
+
+            <select
+              id="camperGender"
+              name="camperGender"
+              required
+            >
+
+              <option value="">
+                Select
+              </option>
+
+              <option value="Male">
+                Male
+              </option>
+
+              <option value="Female">
+                Female
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- SHIRT -->
+
+          <div class="camp-field">
+
+            <label for="camperShirt">
+              T-Shirt Size *
+            </label>
+
+            <select
+              id="camperShirt"
+              name="camperShirt"
+              required
+            >
+
+              <option value="">
+                Select size
+              </option>
+
+              <option value="Youth S">Youth S</option>
+              <option value="Youth M">Youth M</option>
+              <option value="Youth L">Youth L</option>
+              <option value="Youth XL">Youth XL</option>
+
+              <option value="Adult S">Adult S</option>
+              <option value="Adult M">Adult M</option>
+              <option value="Adult L">Adult L</option>
+              <option value="Adult XL">Adult XL</option>
+              <option value="Adult 2XL">Adult 2XL</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             02 — PARENT / GUARDIAN
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">02</span>
+
+          <div>
+            <h4>PARENT / GUARDIAN</h4>
+            <p>Information for the adult responsible for registration.</p>
+          </div>
+
+        </div>
+
+
+        <div class="camp-form-grid">
+
+
+          <div class="camp-field">
+
+            <label for="parentFirstName">
+              Parent / Guardian First Name *
+            </label>
+
+            <input
+              type="text"
+              id="parentFirstName"
+              name="parentFirstName"
+              placeholder="First name"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field">
+
+            <label for="parentLastName">
+              Parent / Guardian Last Name *
+            </label>
+
+            <input
+              type="text"
+              id="parentLastName"
+              name="parentLastName"
+              placeholder="Last name"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field">
+
+            <label for="parentEmail">
+              Parent / Guardian Email *
+            </label>
+
+            <input
+              type="email"
+              id="parentEmail"
+              name="parentEmail"
+              placeholder="parent@email.com"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field">
+
+            <label for="parentPhone">
+              Parent / Guardian Cell Phone *
+            </label>
+
+            <input
+              type="tel"
+              id="parentPhone"
+              name="parentPhone"
+              placeholder="(555) 555-5555"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field camp-field-full">
+
+            <label for="homeAddress">
+              Home Address *
+            </label>
+
+            <input
+              type="text"
+              id="homeAddress"
+              name="homeAddress"
+              placeholder="Street address"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field camp-field-full">
+
+            <label for="cityStateZip">
+              City, State, ZIP Code *
+            </label>
+
+            <input
+              type="text"
+              id="cityStateZip"
+              name="cityStateZip"
+              placeholder="Newburgh, IN 47630"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             03 — EMERGENCY CONTACT
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">03</span>
+
+          <div>
+            <h4>EMERGENCY CONTACT</h4>
+            <p>Someone we can contact if the parent/guardian cannot be reached.</p>
+          </div>
+
+        </div>
+
+
+        <div class="camp-form-grid">
+
+
+          <div class="camp-field">
+
+            <label for="emergencyName">
+              Emergency Contact Name *
+            </label>
+
+            <input
+              type="text"
+              id="emergencyName"
+              name="emergencyName"
+              placeholder="Full name"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field">
+
+            <label for="emergencyPhone">
+              Emergency Contact Phone *
+            </label>
+
+            <input
+              type="tel"
+              id="emergencyPhone"
+              name="emergencyPhone"
+              placeholder="(555) 555-5555"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field camp-field-full">
+
+            <label for="emergencyRelationship">
+              Relationship to Camper *
+            </label>
+
+            <input
+              type="text"
+              id="emergencyRelationship"
+              name="emergencyRelationship"
+              placeholder="Grandparent, aunt, uncle, etc."
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             04 — HEALTH & MEDICAL
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">04</span>
+
+          <div>
+            <h4>HEALTH & MEDICAL</h4>
+            <p>Important information for camp staff.</p>
+          </div>
+
+        </div>
+
+
+        <div class="camp-form-grid">
+
+
+          <div class="camp-field camp-field-full">
+
+            <label for="medicalInfo">
+              Allergies, Medical Conditions, Physical Limitations,
+              or Medications
+            </label>
+
+            <textarea
+              id="medicalInfo"
+              name="medicalInfo"
+              rows="5"
+              placeholder="If yes, please explain. If none, enter 'None'."
+            ></textarea>
+
+          </div>
+
+
+          <div class="camp-field camp-field-full">
+
+            <label for="dietaryRestrictions">
+              Dietary Restrictions *
+            </label>
+
+            <textarea
+              id="dietaryRestrictions"
+              name="dietaryRestrictions"
+              rows="3"
+              placeholder="Please list any dietary restrictions or enter 'None'."
+              required
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             05 — FOOTBALL BACKGROUND
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">05</span>
+
+          <div>
+            <h4>FOOTBALL BACKGROUND</h4>
+            <p>Help us understand the camper's experience and interests.</p>
+          </div>
+
+        </div>
+
+
+        <div class="camp-form-grid">
+
+
+          <!-- PLAYED FOOTBALL -->
+
+          <div class="camp-field">
+
+            <label for="playedFootball">
+              Organized Football Before? *
+            </label>
+
+            <select
+              id="playedFootball"
+              name="playedFootball"
+              required
+            >
+
+              <option value="">
+                Select
+              </option>
+
+              <option value="Yes">
+                Yes
+              </option>
+
+              <option value="No">
+                No
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- CURRENT TEAM -->
+
+          <div class="camp-field">
+
+            <label for="currentTeam">
+              Current Youth Football Team / Program
+            </label>
+
+            <input
+              type="text"
+              id="currentTeam"
+              name="currentTeam"
+              placeholder="Team/program or N/A"
+            >
+
+          </div>
+
+
+          <!-- POSITIONS -->
+
+          <div class="camp-field camp-field-full">
+
+            <label for="positions">
+              Position(s) Currently Played or Want to Learn
+            </label>
+
+            <input
+              type="text"
+              id="positions"
+              name="positions"
+              placeholder="QB, WR, RB, DB, etc."
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             06 — CAMP INFORMATION
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">06</span>
+
+          <div>
+            <h4>CAMP INFORMATION</h4>
+            <p>Help us understand how you found the camp.</p>
+          </div>
+
+        </div>
+
+
+        <div class="camp-form-grid">
+
+
+          <div class="camp-field">
+
+            <label for="howHeard">
+              How Did You Hear About BP3? *
+            </label>
+
+            <select
+              id="howHeard"
+              name="howHeard"
+              required
+            >
+
+              <option value="">
+                Select
+              </option>
+
+              <option value="Facebook">
+                Facebook
+              </option>
+
+              <option value="Instagram">
+                Instagram
+              </option>
+
+              <option value="School">
+                School
+              </option>
+
+              <option value="Coach">
+                Coach
+              </option>
+
+              <option value="Friend or Family">
+                Friend or Family
+              </option>
+
+              <option value="Previous BP3 Camp">
+                Previous BP3 Camp
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="camp-field">
+
+            <label for="attended2026">
+              Attended 1st Annual BP3 Camp? *
+            </label>
+
+            <select
+              id="attended2026"
+              name="attended2026"
+              required
+            >
+
+              <option value="">
+                Select
+              </option>
+
+              <option value="Yes">
+                Yes
+              </option>
+
+              <option value="No">
+                No
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             07 — RELEASES & AUTHORIZATION
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">07</span>
+
+          <div>
+            <h4>RELEASES & AUTHORIZATION</h4>
+            <p>Parent/guardian authorization is required.</p>
+          </div>
+
+        </div>
+
+
+        <!-- PHOTO RELEASE -->
+
+        <div class="camp-consent">
+
+          <label class="camp-checkbox">
+
+            <input
+              type="checkbox"
+              id="photoRelease"
+              name="photoRelease"
+              required
+            >
+
+            <span class="checkmark"></span>
+
+            <span class="consent-text">
+
+              <strong>Photo & Video Release</strong><br>
+
+              I give BP3 permission to use photos and/or video taken
+              during camp for the website, social media, promotional
+              materials, and future camp advertising.
+
+            </span>
+
+          </label>
+
+        </div>
+
+
+        <!-- MEDICAL AUTHORIZATION -->
+
+        <div class="camp-consent">
+
+          <label class="camp-checkbox">
+
+            <input
+              type="checkbox"
+              id="medicalAuthorization"
+              name="medicalAuthorization"
+              required
+            >
+
+            <span class="checkmark"></span>
+
+            <span class="consent-text">
+
+              <strong>Emergency Medical Authorization</strong><br>
+
+              I authorize camp personnel to obtain emergency medical
+              treatment for my child if I cannot be reached.
+
+            </span>
+
+          </label>
+
+        </div>
+
+
+        <!-- LIABILITY WAIVER -->
+
+        <div class="camp-consent">
+
+          <label class="camp-checkbox">
+
+            <input
+              type="checkbox"
+              id="liabilityWaiver"
+              name="liabilityWaiver"
+              required
+            >
+
+            <span class="checkmark"></span>
+
+            <span class="consent-text">
+
+              <strong>Participation / Liability Waiver</strong><br>
+
+              I acknowledge the risks associated with football and
+              athletic activities and authorize my child to participate
+              in the BP3 Youth Football Camp.
+
+            </span>
+
+          </label>
+
+        </div>
+
+
+        <!-- =================================================
+             08 — ELECTRONIC SIGNATURE
+             ================================================= -->
+
+        <div class="form-section-heading">
+
+          <span class="form-section-number">08</span>
+
+          <div>
+            <h4>PARENT / GUARDIAN SIGNATURE</h4>
+            <p>Complete the registration with your electronic signature.</p>
+          </div>
+
+        </div>
+
+
+        <div class="camp-form-grid">
+
+
+          <div class="camp-field">
+
+            <label for="parentSignature">
+              Parent / Guardian Electronic Signature *
+            </label>
+
+            <input
+              type="text"
+              id="parentSignature"
+              name="parentSignature"
+              placeholder="Type your full legal name"
+              required
+            >
+
+          </div>
+
+
+          <div class="camp-field">
+
+            <label for="dateSigned">
+              Date Signed *
+            </label>
+
+            <input
+              type="date"
+              id="dateSigned"
+              name="dateSigned"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="camp-submit-btn"
+          id="campSubmitBtn"
+        >
+
+          <span>REGISTER FOR 2027 CAMP</span>
+
+          <span class="submit-arrow">
+            →
+          </span>
+
+        </button>
+
+
+        <!-- STATUS -->
+
+        <div
+          id="campFormStatus"
+          class="camp-form-status"
+        ></div>
+
+
+        <p class="camp-form-note">
+
+          By submitting this registration, the parent/guardian confirms
+          that the information provided is accurate.
+
+        </p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
 
   <div id="galleryLightbox" class="lightbox-modal">
     <span class="lightbox-close" id="closeLightbox">&times;</span>
@@ -1217,6 +2639,346 @@
 
       window.location.href = finalCheckoutUrl;
     });
+
+    
+// =========================================================
+// 2027 CAMP REGISTRATION
+// =========================================================
+
+const camp2027Form =
+  document.getElementById('camp2027Form');
+
+const campSubmitBtn =
+  document.getElementById('campSubmitBtn');
+
+const campFormStatus =
+  document.getElementById('campFormStatus');
+
+
+if (camp2027Form) {
+
+  // Automatically put today's date into Date Signed
+  const dateSigned =
+    document.getElementById('dateSigned');
+
+  if (dateSigned) {
+
+    const today =
+      new Date().toISOString().split('T')[0];
+
+    dateSigned.value = today;
+
+  }
+
+
+  camp2027Form.addEventListener(
+    'submit',
+    async function(e) {
+
+      e.preventDefault();
+
+
+      // -----------------------------------------------------
+      // VALIDATION
+      // -----------------------------------------------------
+
+      if (!camp2027Form.checkValidity()) {
+
+        camp2027Form.reportValidity();
+
+        return;
+
+      }
+
+
+      // -----------------------------------------------------
+      // BUTTON STATE
+      // -----------------------------------------------------
+
+      campSubmitBtn.disabled = true;
+
+      campSubmitBtn.querySelector(
+        'span:first-child'
+      ).textContent =
+        'SUBMITTING REGISTRATION...';
+
+
+      campFormStatus.className =
+        'camp-form-status';
+
+      campFormStatus.textContent = '';
+
+
+      // -----------------------------------------------------
+      // COLLECT FORM DATA
+      // -----------------------------------------------------
+
+      const formData =
+        new FormData(camp2027Form);
+
+
+      // -----------------------------------------------------
+      // BUILD REGISTRATION OBJECT
+      // -----------------------------------------------------
+
+      const registrationData = {
+
+        // CAMPER
+        camperFirstName:
+          formData.get('camperFirstName'),
+
+        camperLastName:
+          formData.get('camperLastName'),
+
+        camperDOB:
+          formData.get('camperDOB'),
+
+        camperAge:
+          formData.get('camperAge'),
+
+        camperGrade:
+          formData.get('camperGrade'),
+
+        schoolAttending:
+          formData.get('schoolAttending'),
+
+        camperGender:
+          formData.get('camperGender'),
+
+        camperShirt:
+          formData.get('camperShirt'),
+
+
+        // PARENT
+        parentFirstName:
+          formData.get('parentFirstName'),
+
+        parentLastName:
+          formData.get('parentLastName'),
+
+        parentEmail:
+          formData.get('parentEmail'),
+
+        parentPhone:
+          formData.get('parentPhone'),
+
+        homeAddress:
+          formData.get('homeAddress'),
+
+        cityStateZip:
+          formData.get('cityStateZip'),
+
+
+        // EMERGENCY
+        emergencyName:
+          formData.get('emergencyName'),
+
+        emergencyPhone:
+          formData.get('emergencyPhone'),
+
+        emergencyRelationship:
+          formData.get('emergencyRelationship'),
+
+
+        // HEALTH
+        medicalInfo:
+          formData.get('medicalInfo') || '',
+
+        dietaryRestrictions:
+          formData.get('dietaryRestrictions'),
+
+
+        // FOOTBALL
+        playedFootball:
+          formData.get('playedFootball'),
+
+        positions:
+          formData.get('positions') || '',
+
+        currentTeam:
+          formData.get('currentTeam') || '',
+
+
+        // CAMP
+        howHeard:
+          formData.get('howHeard'),
+
+        attended2026:
+          formData.get('attended2026'),
+
+
+        // RELEASES
+        photoRelease:
+          formData.get('photoRelease') === 'on',
+
+        medicalAuthorization:
+          formData.get('medicalAuthorization') === 'on',
+
+        liabilityWaiver:
+          formData.get('liabilityWaiver') === 'on',
+
+
+        // SIGNATURE
+        parentSignature:
+          formData.get('parentSignature'),
+
+        dateSigned:
+          formData.get('dateSigned'),
+
+
+        // TIMESTAMP
+        submittedAt:
+          new Date().toISOString()
+
+      };
+
+
+      // -----------------------------------------------------
+      // DEBUG
+      // -----------------------------------------------------
+
+      console.log(
+        '2027 Camp Registration:',
+        registrationData
+      );
+
+
+      // =====================================================
+      // GOOGLE APPS SCRIPT
+      // =====================================================
+
+      const APPS_SCRIPT_URL =
+        'https://script.google.com/macros/s/AKfycbwsqXXkjBhoLY5gaqciYGBKa2I-xVCnITQLKHIpu9ls4RVCaM73HeUxsipugzu5FRo4/exec';
+
+
+      // -----------------------------------------------------
+      // TEMPORARY MODE
+      // -----------------------------------------------------
+
+      if (!APPS_SCRIPT_URL) {
+
+        campFormStatus.className =
+          'camp-form-status success';
+
+        campFormStatus.textContent =
+          'Registration form is ready. Google Sheets connection will be added next.';
+
+        campSubmitBtn.disabled = false;
+
+        campSubmitBtn.querySelector(
+          'span:first-child'
+        ).textContent =
+          'REGISTER FOR 2027 CAMP';
+
+        return;
+
+      }
+
+
+      // -----------------------------------------------------
+      // SEND TO GOOGLE SHEETS
+      // -----------------------------------------------------
+
+      try {
+
+        const response =
+          await fetch(
+            APPS_SCRIPT_URL,
+            {
+              method: 'POST',
+
+              body:
+                JSON.stringify(
+                  registrationData
+                ),
+
+              headers: {
+                'Content-Type':
+                  'text/plain;charset=utf-8'
+              }
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        // ---------------------------------------------------
+        // SUCCESS
+        // ---------------------------------------------------
+
+        if (result.success) {
+
+          campFormStatus.className =
+            'camp-form-status success';
+
+          campFormStatus.textContent =
+            'Registration received! Thank you for registering for the 2027 BP3 Youth Football Camp.';
+
+
+          camp2027Form.reset();
+
+
+          // Put today's date back after reset
+          if (dateSigned) {
+
+            dateSigned.value =
+              new Date()
+                .toISOString()
+                .split('T')[0];
+
+          }
+
+
+        }
+
+
+        // ---------------------------------------------------
+        // ERROR FROM APPS SCRIPT
+        // ---------------------------------------------------
+
+        else {
+
+          throw new Error(
+            result.message ||
+            'Registration could not be completed.'
+          );
+
+        }
+
+
+      } catch (error) {
+
+        console.error(
+          'Camp registration error:',
+          error
+        );
+
+
+        campFormStatus.className =
+          'camp-form-status error';
+
+        campFormStatus.textContent =
+          'Something went wrong while submitting your registration. Please try again or contact us directly.';
+
+      }
+
+
+      // -----------------------------------------------------
+      // RESET BUTTON
+      // -----------------------------------------------------
+
+      campSubmitBtn.disabled = false;
+
+      campSubmitBtn.querySelector(
+        'span:first-child'
+      ).textContent =
+        'REGISTER FOR 2027 CAMP';
+
+    });
+
+}
 
     // ==========================================
     // CAMP LIGHTBOX FOLDER SYSTEM
